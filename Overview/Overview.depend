@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1686450762 source:/home/snarkydata/udemy-courses/C-Courses/Advanced-C-Programming-Course/Section-04-Working-with-Larger-Programs/Overview/main.c
+	<stdio.h>
+	<stdlib.h>
+	"other.h"
+
+1686450602 /home/snarkydata/udemy-courses/C-Courses/Advanced-C-Programming-Course/Section-04-Working-with-Larger-Programs/Overview/other.h
+
+1686450707 source:/home/snarkydata/udemy-courses/C-Courses/Advanced-C-Programming-Course/Section-04-Working-with-Larger-Programs/Overview/other.c
+	"other.h"
+
