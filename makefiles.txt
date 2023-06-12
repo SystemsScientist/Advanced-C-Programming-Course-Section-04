@@ -1,0 +1,55 @@
+
+Section 04: MakeFiles
+-------------------------------------------------------------------
+
+	- if you still want to work from the command line,
+	  the makefile utility is a tool that you might
+	  want to learn how to use
+
+		+ not part of the C language
+		
+		+ very helpful when developing larger 
+		  programs
+
+		+ can help speed your development time
+
+	- this powerful utility allows you to specify a
+	  list of files and their dependencies in a
+	  special file known as a Makefile
+
+	- the make program automatically recompiles files
+	  only when necessary, based on the modification
+	  times of a file
+
+	- if make finds that your source (.c) file is 
+	  newer than your corresponding object (.o) file,
+	  automatically issues the commands to recompile
+	  the source file to create a new object file
+	
+	- you can even specify files that depend on 
+	  header file
+
+	- you can specify that a module called datefuncs.o
+	  is dependent on its source file datefunc.c as
+	  well as the header file date.h
+
+	- if you change anything inside the date.h 
+	  header file, the make utility automatically
+	  recompiles the datefuncs.c file, based on the
+	  fact that the header file is newer than the
+	  source file
+
+
+Example
+
+	SRC = mod1.c mod2.c main.c
+
+	OBJ = mod1.o mod2.o main.o
+
+	PROG = myProgram$(PROG):$(OBJ)
+		gcc $(OBJ) -o $(PROG)
+	
+	$(OBJ):$(SRC)
+
+
+
