@@ -1,0 +1,123 @@
+
+Section 04: Compiling Multiple Source Files from the Command Line
+------------------------------------------------------------------------------
+
+Overview (Example) I
+
+	- suppose you have conceptually divided your program
+  	  into three modules: mod1.c, mod2.c, and the main()
+	  routine into the file main.c
+
+	- to tell the system that these three modules actually
+	  belong to the same program, you include the names of
+	  all three files when you enter the command to compile
+	  the program, for example:
+
+		$ gcc mod1.c mod2.c main.c -o dbtest
+
+	- the above has the effect of separately compiling the
+	  code contained in mod1.c, mod2.c, and main.c
+
+
+Overview (Example) II
+
+	- errors discovered in mod1.c, mod2.c, and main.c are
+	  separately identified by the compiler
+
+	  mod2.c:10:mod2.c: In function 'foo':
+	  mod2.c:10:error:'i' undeclared (first use in this function)
+	  mod2.c:10:error:(Each undeclared identifier is reported only once
+	  mod2.c:10:error:for each function it appears in.)
+
+	- the above indicates that the compiler identified an error
+	  on line 10 of file mod2.c in the function 'foo'
+
+	- no messages are displayed for mod1.c and main.c because
+	  no errors are found compiling those modules
+
+
+Overview (Example) III
+
+	- we already understand that the compiler generates
+	  intermediate object files for each source file
+	  that it compiles
+
+		+ places the resulting object code from
+		  compiling mod.c into the file mod.o by
+		  default (or obj on windows)
+
+	- some C compilers keep these object files around
+	  and do not delete them when you compile more than
+	  one file at a time
+
+	- in the previous example, because mod1.c and main.c
+	  had no compiler errors, the corresponding .o files
+	  (mod1.o and main.o) would still be around
+
+	- replacing the c from the filename mod.c with an 0
+	  tells the C compiler to use the object file that
+	  was produced 
+
+	- the following command line could be used with
+	  a compiler that does not delete the object code
+	  files
+
+	- cc mod1.o mod2.c main.o -o dbtest
+
+	- you do not have to re-edit mod1.c and main.c if
+	  no errors are discovered by the compiler, but
+	  you also don't have to recompile them
+
+
+Overview (Example) IV
+
+	- if you compiler automatically deletes the
+	  intermediate .o files, you can still take
+	  advantage of performing incremental compilations
+
+	- you can compile each module separately and using
+	  the -c command-line option
+
+		+ option tells the compiler not to link
+		  your file
+
+		+ does not produce an executable
+
+		+ retains the intermediate object file
+		  that it creates
+
+	- example
+
+		$ gcc -c mod2.c
+
+	- compiles the file mod2.c, placing the resulting
+	  executable in the file mod2.o
+
+
+Overview (Example) V
+
+	- you can use the following sequence to compile
+	  a three-module program using the incremental
+	  compilation technique
+
+	  $ gcc -c mod1.c	Compile mod1.c => mod1.o
+	  $ gcc -c mod2.c	Compile mod2.c => mod2.o
+	  $ gcc -c main.c	Compile main.c => main.o
+
+	- if you extend the preceding examples to programs
+	  that consist of many modules, you can see how
+	  this mechanism of separate compilations can 
+	  enable you to develop large programs mroe
+	  efficiently
+
+	  $gcc -c legal.c	Compile legal.c, placing output in legal.o
+	  $gcc legal.o makemove.o exec.o enumerator.o evaluator.o display.o -o superchess
+
+	- the above will compile a program consisting of six modules
+	  in which only the module legal.c needs to be recompiled
+
+	- Code::Blocks and Visual Studio Code have this
+	  knowledge of what needs recompilation
+
+
+
