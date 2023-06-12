@@ -52,4 +52,48 @@ Example
 	$(OBJ):$(SRC)
 
 
+Example Explained
+
+	- this Makefile defines the set of source files (SRC)
+
+	- this MakeFile defines the corresponding set of
+	  object files (OBJ)
+
+	- this Makefile defines the name of the executable (PROG)
+
+	- also defines some dependencies ($(PROG):$(OBJ))
+
+	-  says that executable is dependent on the object file
+
+	- if one or more object files change, the executable
+	  needs to be rebuilt
+
+	- must be typed with a leading tab (gcc$(OBJ) -o $(PROG))
+
+	- the last line of the Makefile ($(OBJ):$(SRC)) says that
+	  each object file depends on its corresponding source
+	  file
+	
+	- if a source file changes, its corresponding object file
+	  must be rebuilt
+	
+	- the make utility has built-in rules that tell it how
+	  to do that
+
+
+Running Make
+
+	$ make
+
+	gcc -c -o mod1.o mod1.c
+	gcc -c -o mod2.o mod2.c
+	gcc -c -o main.o main.c
+	gcc mod1.o mod2.o main.o -o myProgram
+	$
+
+	- make compiled each individual source file and the
+	  linked the resulting object files to create the
+	  executable
+
+
 
