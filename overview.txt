@@ -1,0 +1,141 @@
+
+Section 04: Overview
+---------------------------------------------------------------------------------
+
+Overview
+
+	- all of the example programs that have been provided
+ 	  in this class and my beginner class have all been
+	  very small and relatively simple
+
+	- most programs in the real world that you will have
+	  to develop will not be as small or as simple
+
+	- it is imperative to learn the proper techniques for
+	  dealing with larger programs
+
+		+ you need to divide the problem into multiple
+		  sub problems and then try to tackle it one
+		  by one
+
+	- C provides all the features necessary for the efficient
+	  development of large programs
+
+
+Dividing Your Program into Multiple Files
+
+	- in every program that I have presented so far, it was
+	  assumed that the entire program was entered into a
+	  single file
+
+	- the most common beginner mistake is to jump in directly
+	  and try to write all the necessary code into a single 
+	  file and later try to debug or extend later
+	
+		+ this approach is doomed to fail and would
+		  usually require re-writing from scratch
+
+	- all the functions that the program used were included
+	  in one file
+
+		+ except for the system functions, such as
+		  printf() and scanf()
+
+		+ standard header files such as <stdio.h> and
+		  <stdbool.h> were also included for definitions
+		  and function declarations
+
+	- when you start dealing with larger programs, they must
+	  be organized around multiple files
+
+		+ programs that contain more than 100 statements
+		  or so
+
+
+Integrated Development Environments (IDEs)
+
+	- developing with an Integrated Development Environment
+	  (IDE) is essential when dealing with large programs
+
+	- large programming applications frequently require the
+	  efforts of more than one programmer
+
+		+ as the number of statements in the program
+		  increases, so does the time it takes to edit
+		  the program and to subsequently recompile it
+
+		+ having everyone work on the same source file,
+		  or even on their own copy of the same source
+		  file, is unmanageable
+
+	- C programs do not require that all the statements for
+	  a particular program be contained in a single file
+
+		+ you can enter your code for a particular
+		  module into one file, for another module into
+		  a different file, and so on
+
+	- the term module refers either to a single function or
+	  to a number of related functions that you choose to
+	  group logically
+
+	- with Code::Blocks and Visual Studio Code, working 
+	  with mutliple source files is easy
+
+		+ you simply have to identify the particular
+		  files that belong to the project on which
+		  you are working, and the software handles
+		  the rest for you
+
+
+Advantages
+
+	- the advantages of this approach allows you to 
+	  achieve abstraction and promotes the re-usability
+	  of code
+
+	- teams of programmers can work on programs
+
+		+ each programmer works on a different file
+
+	- files can contain all functions from a related
+	  group
+
+		+ e.g. all matrix operations
+
+	- well implemented can be re-used in other programs,
+	  reducing development time
+
+	- when changes are made to a file, only that file
+	  need be re-compiled to rebuild the program
+
+	- if you check any Open-Source project (GitHub),
+	  you can see how the large program is "decentra-
+	  lized" into many numbers of sub-modules
+
+		+ each individual module contributes to a
+	  	  specific critical function of the program
+
+
+How???
+
+	- programmers usually start designing a program 
+	  by dividing the problem into easily managed
+	  sections
+
+	- each of these sections might be implemented as one
+ 	  or more functions
+
+	- all functions from each section will usually live 
+	  in a single file
+
+	- the file contains the definition of each function
+	
+		+ should create a header file for each of 
+		  the C files
+
+			- will have the same name as the C
+			  file
+
+
+
